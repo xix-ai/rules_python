@@ -149,6 +149,7 @@ py_library(
     name = "pkg",
     srcs = glob(["**/*.py"]),
     data = glob(["**/*"], exclude=["**/*.py", "**/* *", "BUILD", "WORKSPACE"]),
+    python_version = "PY3",
     # This makes this directory a top-level in the python import
     # search path for anything that depends on this.
     imports = ["."],
@@ -163,6 +164,7 @@ py_library(
   extras='\n\n'.join([
     """py_library(
     name = "{extra}",
+    python_version = "PY3",
     deps = [
         ":pkg",{deps}
     ],
